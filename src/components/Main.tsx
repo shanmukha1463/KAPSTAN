@@ -5,11 +5,8 @@ import DeployedStatusButtonComponent, {
   DeployedStatusButton,
 } from "./DeployedStatusButton";
 import Tabs from "./Tabs";
-import ServiceInfo from "./ServiceInfo";
-import SystemMetrics from "./SystemMetrics";
-import EventHistory from "./EventHistory";
 import { useAppContext } from "@/contexts";
-import Overview from "./Overview";
+
 
 const Main: () => JSX.Element = () => {
   const { applications, activeApplication } = useAppContext();
@@ -33,12 +30,6 @@ const Main: () => JSX.Element = () => {
         </div>
       </div>
       <Tabs />
-      
-      {/* <ServiceInfo />
-      <div className="mt-4 flex flex-row flex-wrap justify-between ">
-        <SystemMetrics />
-        <EventHistory />
-      </div> */}
     </main>
   );
 };

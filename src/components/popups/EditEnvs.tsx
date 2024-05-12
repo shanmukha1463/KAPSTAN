@@ -1,17 +1,38 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const UploadFileEnvs: React.FC = ({ envs, setEnvs, oldEnvs }) => {
+interface Env {
+  env: string;
+  value: string;
+}
+
+interface EditEnvsProps {
+  setEditPopup: React.Dispatch<React.SetStateAction<boolean>>;
+  setEnvs: React.Dispatch<React.SetStateAction<Env[]>>;
+  envs: Env[];
+}
+
+interface EditEnvsChildProps {
+  envs: Env[];
+  setEnvs: React.Dispatch<React.SetStateAction<Env[]>>;
+  oldEnvs: Env[];
+}
+
+const UploadFileEnvs: React.FC<EditEnvsChildProps> = ({
+  envs,
+  setEnvs,
+  oldEnvs,
+}) => {
   const [fileContent, setFileContent] = useState("");
   const [fileName, setFileName] = useState("");
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files ?? event.target.files[0];
     if (file) {
       setFileName(file.name);
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = (e: any) => {
         const content = e.target.result;
         setFileContent(content);
       };
@@ -19,9 +40,9 @@ const UploadFileEnvs: React.FC = ({ envs, setEnvs, oldEnvs }) => {
     }
   };
 
-  const parseEnvVariables = (content) => {
+  const parseEnvVariables = (content: string) => {
     const lines = content.split(/\r?\n/);
-    const envVars = lines.reduce((acc, line) => {
+    const envVars = lines.reduce((acc: any, line) => {
       const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
       if (match) {
         const key = match[1];
@@ -106,7 +127,11 @@ const UploadFileEnvs: React.FC = ({ envs, setEnvs, oldEnvs }) => {
   );
 };
 
-const ManualEditEnvs: React.FC = ({ envs, setEnvs, oldEnvs }) => {
+const ManualEditEnvs: React.FC<EditEnvsChildProps> = ({
+  envs,
+  setEnvs,
+  oldEnvs,
+}) => {
   return (
     <div className="flex flex-col w-[95%] ml-auto mr-auto mt-8 border-[#EBEBEB] border-2 rounded pt-2 pb-2">
       {[...envs].map((env, index) => (
@@ -181,7 +206,7 @@ const ManualEditEnvs: React.FC = ({ envs, setEnvs, oldEnvs }) => {
   );
 };
 
-const EditEnvs: React.FC = ({ setEditPopup, envs, setEnvs }) => {
+const EditEnvs: React.FC<EditEnvsProps> = ({ setEditPopup, envs, setEnvs }) => {
   const [tempEnvs, setTempEnvs] = useState(envs);
   return (
     <div

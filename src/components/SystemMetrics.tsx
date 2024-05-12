@@ -14,20 +14,6 @@ enum Tabs {
   Memory,
 }
 
-// function DateFormatter(input: any) {
-//   const date = new Date(input);
-//   const options = {
-//     day: "2-digit",
-//     month: "short",
-//     hour: "numeric",
-//     minute: "2-digit",
-//     hour12: true,
-//     timeZone: "Asia/Kolkata",
-//   };
-//   const formattedDate = new Intl.DateTimeFormat("en-IN", options).format(date);
-//   return formattedDate;
-// }
-
 const SystemMetrics: React.FC = () => {
   const [options, setOptions] = useState<Options>({});
   const [currentActiveTab, setCurrentActiveTab] = useState<Tabs>(Tabs.CPU);
@@ -81,29 +67,6 @@ const SystemMetrics: React.FC = () => {
             },
           },
         },
-        // tooltip: {
-        //   headerFormat: `<b>${formattedDate(point.key)}</b><br/>`,
-        // },
-        // tooltip: {
-        //   formatter: function () {
-        //     const date = new Date(this.x);
-        //     const options = {
-        //       day: "2-digit",
-        //       month: "short",
-        //       hour: "numeric",
-        //       minute: "2-digit",
-        //       hour12: true,
-        //       timeZone: "Asia/Kolkata",
-        //     };
-        //     const formattedDate = new Intl.DateTimeFormat(
-        //       "en-IN",
-        //       options
-        //     ).format(date);
-        //     const value = `${this.y.toFixed(2)}%`; // Formatting value as percentage
-
-        //     return `<b>${formattedDate}</b><br/>${this.series.name}: <b>${value}</b>`;
-        //   },
-        // },
       };
       setOptions({ ...options });
     } catch (error) {

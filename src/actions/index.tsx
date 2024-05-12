@@ -84,7 +84,7 @@ const getEventHistory: () => Promise<eventHistoryMetric[]> = async () => {
 
 async function fetchApplications(): Promise<Application[]> {
   const res = await fetch("https://retoolapi.dev/71NNjB/applications", {
-    cache: "no-store", // Avoid caching data on build
+    cache: "no-store",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch applications");

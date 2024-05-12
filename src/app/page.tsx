@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Main from "@/components/Main";
 import Sidebar from "@/components/Sidebar";
-import Image from "next/image";
 import { AppProvider } from "@/contexts";
 
 function Home() {
