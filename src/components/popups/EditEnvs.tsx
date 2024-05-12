@@ -28,7 +28,7 @@ const UploadFileEnvs: React.FC<EditEnvsChildProps> = ({
   const [fileContent, setFileContent] = useState("");
   const [fileName, setFileName] = useState("");
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files ?? event.target.files[0];
+    const file = event.target.files ? event.target.files[0] : null;
     if (file) {
       setFileName(file.name);
       const reader = new FileReader();
