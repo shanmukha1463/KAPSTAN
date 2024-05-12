@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import EditEnvs from "./popups/EditEnvs"; 
+import EditEnvs from "./popups/EditEnvs";
 
 interface Env {
   env: string;
@@ -9,7 +9,7 @@ interface Env {
 
 const EnvironmentVariables: React.FC = () => {
   const [editPopup, setEditPopup] = useState(false);
-  const [envs, setEnvs] = useState<Env[]>([]); 
+  const [envs, setEnvs] = useState<Env[]>([]);
 
   return (
     <div className="h-[500px] m-4 bg-foreground flex flex-col">
@@ -55,6 +55,7 @@ const EnvironmentVariables: React.FC = () => {
                 width={20}
                 height={20}
                 onClick={() => setEnvs(envs.filter((e) => e !== env))}
+                className="cursor-pointer"
               />
             </div>
           </div>

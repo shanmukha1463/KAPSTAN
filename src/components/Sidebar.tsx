@@ -110,7 +110,7 @@ const Sidebar: () => JSX.Element = () => {
             key={"closeLeftSideBar"}
           >
             <div
-              className="h-[40px] w-[40px] flex justify-center items-center cursor-auto"
+              className="h-[40px] w-[40px] flex justify-center items-center cursor-pointer"
               onClick={() => setCollapsed(!collaspsed)}
             >
               {collaspsed ? (

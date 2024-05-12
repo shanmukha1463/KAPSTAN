@@ -32,7 +32,7 @@ const Tabs: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   return (
     <>
-      <div className="pt-4 flex flex-row">
+      <div className="pt-4 flex flex-row space-between">
         {tabItems.map((item, index) => (
           <div
             key={item.name}
@@ -47,8 +47,10 @@ const Tabs: React.FC = () => {
               className="mr-1"
             />
             <div
-              className={`leading-[20px] text-[14px] ${
-                selectedTab == index && "font-bold"
+              className={`leading-[20px] text-[14px] font-bold ${
+                selectedTab == index
+                  ? "text-black text-opacity-100"
+                  : "text-black text-opacity-50"
               }`}
             >
               {item.name}

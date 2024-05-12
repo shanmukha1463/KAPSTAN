@@ -175,7 +175,7 @@ const ManualEditEnvs: React.FC<EditEnvsChildProps> = ({
           </div>
           <Image
             src="/icons/delete.svg"
-            className="flex-[0.05]"
+            className="flex-[0.05] cursor-pointer"
             alt="delete"
             width={20}
             height={20}
@@ -213,7 +213,7 @@ const EditEnvs: React.FC<EditEnvsProps> = ({ setEditPopup, envs, setEnvs }) => {
       className="absolute top-0 right-0 h-screen w-[50%] bg-foreground flex flex-col "
       style={{ boxShadow: "-16px 0px 12px 0px #00000014" }}
     >
-      <div className="flex flex-row justify-end">
+      <div className="flex flex-row justify-end cursor-pointer">
         <Image
           src="/icons/close.svg"
           alt="close"

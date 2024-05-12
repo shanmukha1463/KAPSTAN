@@ -83,7 +83,7 @@ const SystemMetrics: React.FC = () => {
       <div className="font-bold text-[16px] leading-[24px] text-[#595959] mt-4 pl-4">
         System Metrics
       </div>
-      <div className="flex flex-row items-center justify-center mt-4 mb-2 border-b-[1px] border-[#BDBDBD]">
+      <div className="flex flex-row items-center justify-center mt-4 mb-2 border-b-[1px] border-[#BDBDBD] cursor-pointer">
         {categories.map((category, index) => {
           return (
             <p
